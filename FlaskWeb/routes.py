@@ -1,11 +1,35 @@
-from FlaskWeb import app
+from FlaskWeb import app, db
 from flask import render_template
+from FlaskWeb.modules import Posts, Messages
 
 
 @app.route("/")
 @app.route("/home")
 def home_page():
-  return render_template("index.html")
+  with app.app_context():
+    posts = Posts.query.all()
+  return render_template("index.html", posts=posts)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/about")
 def about_page():
@@ -17,4 +41,4 @@ def contact_page():
 
 @app.route("/post")
 def post_page():
-  return render_template("post.html")
+  return render_template("postPage.html")

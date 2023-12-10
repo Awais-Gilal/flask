@@ -1,0 +1,16 @@
+{% for post in posts %}
+    <div class="post-preview">
+        <a href="#">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <h3 class="post-subtitle">{{ post.detail }}</h3>
+        </a>
+        <p class="post-meta">
+            Posted by
+            <a href="#!">{{ post.name}}</a>
+            on {{post.date}}
+        </p>
+    </div>
+    {% if not loop.last %}
+    <hr class="my-4" />
+    {% endif %}
+{% endfor %}

@@ -5,7 +5,7 @@ class Posts(db.Model):
     name = db.Column(db.String(length=120), unique=False, nullable=False)
     title = db.Column(db.String(length=999), unique=False, nullable=False)
     detail = db.Column(db.String(length=990), unique = False, nullable=False)
-    date = db.Column(db.String(length=120), unique=False, nullable=False)
+    date = db.Column(db.String(length=999), unique=False, nullable=False)
 
 
 class Messages(db.Model):
@@ -15,3 +15,8 @@ class Messages(db.Model):
     phone = db.Column(db.String(length=120), unique=False, nullable=False)
     message = db.Column(db.String(length=999), unique=False, nullable=False)
     date = db.Column(db.String(length=999), unique=False, nullable=False)
+
+def date_time():
+    import datetime
+    return str(datetime.datetime.now())
+    
